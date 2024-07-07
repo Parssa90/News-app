@@ -1,5 +1,5 @@
 import requests
-
+import Credentials
 def fetch_articles(api_key):
     url = "https://eventregistry.org/api/v1/article/getArticles"
     data = {
@@ -15,7 +15,7 @@ def fetch_articles(api_key):
             "news",
             "pr"
         ],
-        "apiKey": "7407cd18-ccee-4fab-b3bd-ee345b9b29d4",
+        "apiKey": Credentials.api_key,
         "forceMaxDataTimeWindow": 20
     }
 
@@ -31,7 +31,7 @@ def fetch_articles(api_key):
 
 if __name__ == "__main__":
     # Example usage:
-    api_key = "7407cd18-ccee-4fab-b3bd-ee345b9b29d4"  # Replace with your actual API key
+    api_key = Credentials.api_key  # Replace with your actual API key
     articles = fetch_articles(api_key)
     for article in articles[:20]:
         print(f"Title: {article['title']}")
